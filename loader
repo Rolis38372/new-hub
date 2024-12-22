@@ -8,33 +8,36 @@ local scripts = {
 
     [2345678901] = function() 
     end,
+
     [3456789012] = function() 
     end,
+
     [4567890123] = function() 
     end,
+
     [5678901234] = function() 
     end,
+
     [6789012345] = function() 
     end,
+
     [7890123456] = function() 
     end,
+
     [8901234567] = function() 
     end,
+
     [9012345678] = function() 
     end,
+
     [123456789] = function() 
         
     end
 }
 
--- Получаем текущий Place ID
 local currentPlaceId = game.PlaceId
-
--- Проверяем, есть ли скрипт для текущего Place ID
 if scripts[currentPlaceId] then
-    -- Если есть, запускаем соответствующий скрипт
     scripts[currentPlaceId]()
 else
-    -- Если скрипта для текущего Place ID нет
     print("Скрипт для игры с ID " .. currentPlaceId .. " не найден")
 end
