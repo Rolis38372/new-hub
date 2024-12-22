@@ -1,0 +1,59 @@
+-- Функция для создания кнопки
+local function createButton(name, position)
+    local button = Instance.new("TextButton")
+    button.Name = name
+    button.Size = UDim2.new(0, 100, 0, 40)
+    button.Position = position
+    button.Text = name
+    button.Font = Enum.Font.SourceSansBold
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.TextSize = 14
+    button.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+    button.BorderSizePixel = 0
+    
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 10)
+    corner.Parent = button
+    
+    return button
+end
+
+-- Функция для удаления всех кнопок
+local function removeAllButtons(gui)
+    for _, child in pairs(gui:GetChildren()) do
+        if child:IsA("TextButton") then
+            child:Destroy()
+        end
+    end
+end
+
+-- Основная функция скрипта
+local function doorsScript()
+    local player = game.Players.LocalPlayer
+    local gui = Instance.new("ScreenGui")
+    gui.Name = "DoorsGUI"
+    gui.Parent = player.PlayerGui
+
+    -- Создаем кнопки
+    local button1 = createButton("BlackKing", UDim2.new(0, 10, 0, 10))
+    local button2 = createButton("MsPaint(outdated)", UDim2.new(0, 10, 0, 60))
+
+    button1.Parent = gui
+    button2.Parent = gui
+
+
+    -- Добавляем функциональность кнопкам
+    button1.MouseButton1Click:Connect(function()
+        removeAllButtons(gui)
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing"))() 
+    end)
+
+    button2.MouseButton1Click:Connect(function()
+        removeAllButtons(gui)
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/mspaint/main/main.lua"))()
+    end)
+
+end
+
+-- Запускаем скрипт
+doorsScript()
