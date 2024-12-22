@@ -1,7 +1,7 @@
 -- Таблица с Place ID и соответствующими скриптами
 local scripts = {
     [6839171747] = function() -- Doors
-        
+        loadstring(Game:HttpGet"https://raw.githubusercontent.com/Rolis38372/new-hub/refs/heads/main/doors%20script")()
     end,
     [1234567890] = function() 
     end,
