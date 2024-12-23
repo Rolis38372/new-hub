@@ -38,5 +38,5 @@ local currentPlaceId = game.PlaceId
 if scripts[currentPlaceId] then
     scripts[currentPlaceId]()
 else
-    print("Скрипт для игры с ID " .. currentPlaceId .. " не найден")
+    print("The game is not supported")
 end
