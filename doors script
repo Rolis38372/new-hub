@@ -1,4 +1,3 @@
--- Функция для создания кнопки
 local function createButton(name, position)
     local button = Instance.new("TextButton")
     button.Name = name
@@ -18,7 +17,6 @@ local function createButton(name, position)
     return button
 end
 
--- Функция для удаления всех кнопок
 local function removeAllButtons(gui)
     for _, child in pairs(gui:GetChildren()) do
         if child:IsA("TextButton") then
@@ -27,14 +25,12 @@ local function removeAllButtons(gui)
     end
 end
 
--- Основная функция скрипта
 local function doorsScript()
     local player = game.Players.LocalPlayer
     local gui = Instance.new("ScreenGui")
     gui.Name = "DoorsGUI"
     gui.Parent = player.PlayerGui
 
-    -- Создаем кнопки
     local button1 = createButton("BlackKing", UDim2.new(0, 10, 0, 10))
     local button2 = createButton("MsPaint(outdated)", UDim2.new(0, 10, 0, 60))
 
@@ -42,7 +38,6 @@ local function doorsScript()
     button2.Parent = gui
 
 
-    -- Добавляем функциональность кнопкам
     button1.MouseButton1Click:Connect(function()
         removeAllButtons(gui)
        loadstring(game:HttpGet("https://raw.githubusercontent.com/KINGHUB01/BlackKing/main/BlackKing"))() 
@@ -55,5 +50,4 @@ local function doorsScript()
 
 end
 
--- Запускаем скрипт
 doorsScript()
