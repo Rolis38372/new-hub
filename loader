@@ -6,7 +6,7 @@ local scripts = {
         loadstring(Game:HttpGet"https://raw.githubusercontent.com/Rolis38372/new-hub/refs/heads/main/Legends%20of%20speed")()
     end,
 
-    [301549746] = function() 
+    [301549746] = function() -- Counter Blox
     end,
 
     [3456789012] = function() 
