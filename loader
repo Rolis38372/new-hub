@@ -7,6 +7,7 @@ local scripts = {
     end,
 
     [301549746] = function() -- Counter Blox
+        loadstring(Game:HttpGet"https://raw.githubusercontent.com/Rolis38372/new-hub/refs/heads/main/Counter%20Blox")()
     end,
 
     [3456789012] = function() 
