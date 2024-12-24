@@ -2,7 +2,8 @@ local scripts = {
     [6839171747] = function() -- Doors
         loadstring(Game:HttpGet"https://raw.githubusercontent.com/Rolis38372/new-hub/refs/heads/main/doors%20script")()
     end,
-    [1234567890] = function() 
+    [3101667897] = function() -- Legends of speed
+        loadstring(Game:HttpGet"https://raw.githubusercontent.com/Rolis38372/new-hub/refs/heads/main/Legends%20of%20speed")()
     end,
 
     [2345678901] = function() 
