@@ -1,0 +1,49 @@
+local function createButton(name, position)
+    local button = Instance.new("TextButton")
+    button.Name = name
+    button.Size = UDim2.new(0, 150, 0, 40)
+    button.Position = position
+    button.Text = name
+    button.Font = Enum.Font.SourceSansBold
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.TextSize = 14
+    button.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+    button.BorderSizePixel = 0
+    
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 10)
+    corner.Parent = button
+    
+    return button
+end
+
+local function createGUI()
+    local player = game.Players.LocalPlayer
+    local gui = Instance.new("ScreenGui")
+    gui.Name = "CounterBloxGUI"
+    gui.Parent = player.PlayerGui
+
+    local solarisButton = createButton("solaris.lol", UDim2.new(0, 10, 0, 10))
+    solarisButton.Parent = gui
+
+    local happyHubButton = createButton("Happy Hub", UDim2.new(0, 10, 0, 60))
+    happyHubButton.Parent = gui
+
+    local function removeButtons()
+        solarisButton:Destroy()
+        happyHubButton:Destroy()
+        gui:Destroy()
+    end
+
+    solarisButton.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/solaris_bootstrapper.lua", true))()
+        removeButtons()
+    end)
+
+    happyHubButton.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/uedan228/FREE-Counter-Blox-script/main/V1.1"))()
+        removeButtons()
+    end)
+end
+
+createGUI()
